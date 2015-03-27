@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Rental
+        psr4_prefix: Rental
+        src_path: app
