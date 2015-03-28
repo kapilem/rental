@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Rental\JenisKendaraan;
 use Rental\TypeKendaraan;
 use Rental\Customer;
+use Rental\Kendaraan;
 class ApiController extends Controller {
 
 	/**
@@ -16,7 +17,7 @@ class ApiController extends Controller {
 	 */
 	public function getJenisKendaraan()
 	{
-		return Response::json(['status' => 200,'results'=>JenisKendaraan::all()]);
+		return Response::json(['results'=>JenisKendaraan::all()]);
 	}
 
 	/**
@@ -35,11 +36,34 @@ class ApiController extends Controller {
 	}
 	public function getByMerkMobil($merk)
 	{
-		$query = TypeKendaraan::where('id_jenis_kendaraan', '=', 2)->where('merk',$merk)->get();
-		//var_dump($query);
+		$query = Kendaraan::TypeKendaraan()->mobil()->where('merk',$merk)->get();
 
 		if ($query->isEmpty()) {
     		return Response::json(['error'=>array('code'=>404,'messages'=>'merk '.$merk.' tidak terdaftar')],404);
+		}
+		else
+		{
+			return Response::json(['results'=>$query]);			
+		}
+	}
+	public function getByMerkTahunMobil($merk,$tahun)
+	{
+		$query = Kendaraan::TypeKendaraan()->mobil()->where('merk',$merk)->where('tahun',$tahun)->get();
+
+		if ($query->isEmpty()) {
+    		return Response::json(['error'=>array('code'=>404,'messages'=>'merk '.$merk.' tidak terdaftar')],404);
+		}
+		else
+		{
+			return Response::json(['results'=>$query]);			
+		}
+	}
+	public function getByTahunMobil($tahun)
+	{
+		$query = Kendaraan::TypeKendaraan()->mobil()->where('tahun',$tahun)->get();
+
+		if ($query->isEmpty()) {
+    		return Response::json(['error'=>array('code'=>404,'messages'=>'data not found')],404);
 		}
 		else
 		{
@@ -65,6 +89,11 @@ class ApiController extends Controller {
 	public function getCustByName($nama)
 	{
 		$query = Customer::where('firstname','like',$nama.'%')->get();
+		return Response::json(['results'=>$query]);
+	}
+	public function getKendaraan()
+	{
+		$query = Kendaraan::TypeKendaraan()->get();
 		return Response::json(['results'=>$query]);
 	}
 }

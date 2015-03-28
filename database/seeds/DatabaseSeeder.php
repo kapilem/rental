@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Rental\JenisKendaraan;
 use Rental\TypeKendaraan;
 use Rental\Customer;
+use Rental\Kendaraan;
 
 class DatabaseSeeder extends Seeder {
 
@@ -19,7 +20,8 @@ class DatabaseSeeder extends Seeder {
 
 		//$this->call('JenisKendaraanTableSeeder');
 		//$this->call('TypeKendaraanTableSeeder');
-    $this->call('CustomerTableSeeder');
+    //$this->call('CustomerTableSeeder');
+    $this->call('KendaraanTableSeeder');
 	}
 
 }
@@ -50,7 +52,14 @@ class DatabaseSeeder extends Seeder {
   class CustomerTableSeeder extends Seeder{
     public function run()
     {
-      DB::table('customer')->delete();
+      DB::table('customers')->delete();
       Customer::create(['firstname'=>'Endang','lastname'=>'Kurniawan','alamat'=>'Jl. buntu No.2','no_telp'=>'+628123456789','no_identitas'=>'0192838475753','jenis_identitas'=>'sim']);
     }
+  }
+  class KendaraanTableSeeder extends Seeder{
+    public function run(){
+   // DB::table('kendaraans')->delete();
+    Kendaraan::create(['id_type_kendaraan'=>4,'kode_kendaraan'=>'MBL3','no_polisi'=>'E123AA','warna'=>'merah','tahun'=>2009]);
+    }
+
   }

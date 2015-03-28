@@ -25,19 +25,29 @@ Route::controllers([
 ]);
 
 Route::group(['prefix' => 'api/v1', 'after' => 'allowOrigin'], function() {
+	Route::get('/jeniskendaraan', 'ApiController@getJenisKendaraan');
+	
 	Route::group(['prefix' => '/mobil', 'after' => 'allowOrigin'], function() {
 		Route::get('/', 'ApiController@getMobil');
 		Route::get('/{merk}', 'ApiController@getByMerkMobil');
+		Route::get('/{merk}/yyyy/{tahun}', 'ApiController@getByMerkTahunMobil');
+		Route::get('/yyyy/{tahun}', 'ApiController@getByTahunMobil');
 	});
+
 	Route::group(['prefix' => '/motor', 'after' => 'allowOrigin'], function() {
 		Route::get('/', 'ApiController@getMotor');
 		Route::get('/{merk}', 'ApiController@getByMerkMobil');
 	});
+
 	Route::group(['prefix' => '/customer', 'after' => 'allowOrigin'], function() {
 		Route::get('/', 'ApiController@getCust');
 		Route::get('/{nama}', 'ApiController@getCustByName');
 	});
-	Route::get('/jeniskendaraan', 'ApiController@getJenisKendaraan');
+	
+	
+	Route::group(['prefix'=>'/kendaraan', 'after'=>'allowOrigin'],function(){
+		Route::get('/','ApiController@getKendaraan');
+	});
 
 
 });
