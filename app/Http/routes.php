@@ -24,6 +24,11 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+
+Route::get('kendaraan/add','KendaraanController@getAdd');
+Route::post('kendaraan/add','KendaraanController@postAdd');
+
+//Routes for api
 Route::group(['prefix' => 'api/v1', 'after' => 'allowOrigin'], function() {
 	Route::get('/jeniskendaraan', 'ApiController@getJenisKendaraan');
 	

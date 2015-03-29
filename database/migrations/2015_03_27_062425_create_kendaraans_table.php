@@ -20,6 +20,7 @@ class CreateKendaraansTable extends Migration {
 			$table->string('no_polisi',7);
 			$table->string('warna',10);
 			$table->smallinteger('tahun');
+			$table->string('foto');
 			$table->timestamps();
 		});
 	}
