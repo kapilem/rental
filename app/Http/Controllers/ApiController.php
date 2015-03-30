@@ -84,12 +84,17 @@ class ApiController extends Controller {
 	public function getCust()
 	{
 		$query = Customer::all();
-		return Response::json(['results'=>$query]);
+		return Response::json(['customers'=>$query]);
 	}
 	public function getCustByName($nama)
 	{
 		$query = Customer::where('firstname','like',$nama.'%')->get();
 		return Response::json(['results'=>$query]);
+	}
+	public function getCustById($id)
+	{
+		$query = Customer::where('id','=',$id)->get();
+		return Response::json(['customers'=>$query]);
 	}
 	public function getKendaraan()
 	{

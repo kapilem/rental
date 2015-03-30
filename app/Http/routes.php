@@ -30,6 +30,8 @@ Route::post('kendaraan/add','KendaraanController@postAdd');
 
 //Routes for api
 Route::group(['prefix' => 'api/v1', 'after' => 'allowOrigin'], function() {
+	header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 	Route::get('/jeniskendaraan', 'ApiController@getJenisKendaraan');
 	
 	Route::group(['prefix' => '/mobil', 'after' => 'allowOrigin'], function() {
@@ -44,9 +46,10 @@ Route::group(['prefix' => 'api/v1', 'after' => 'allowOrigin'], function() {
 		Route::get('/{merk}', 'ApiController@getByMerkMobil');
 	});
 
-	Route::group(['prefix' => '/customer', 'after' => 'allowOrigin'], function() {
+	Route::group(['prefix' => '/customers', 'after' => 'allowOrigin'], function() {
 		Route::get('/', 'ApiController@getCust');
-		Route::get('/{nama}', 'ApiController@getCustByName');
+		Route::get('/{id}', 'ApiController@getCustById');
+		Route::get('/name/{nama}', 'ApiController@getCustByName');
 	});
 	
 	

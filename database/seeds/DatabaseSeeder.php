@@ -7,6 +7,9 @@ use Rental\TypeKendaraan;
 use Rental\Customer;
 use Rental\Kendaraan;
 
+use Faker\Factory as Faker;
+use Faker\Generator;
+
 class DatabaseSeeder extends Seeder {
 
 	/**
@@ -22,6 +25,7 @@ class DatabaseSeeder extends Seeder {
 		//$this->call('TypeKendaraanTableSeeder');
     //$this->call('CustomerTableSeeder');
     //$this->call('KendaraanTableSeeder');
+    $this->call('CustomerSeeder');
 	}
 
 }

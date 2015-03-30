@@ -6,8 +6,8 @@ class Customer extends Model {
 
 	protected $table = 'customers';
 
-	protected $hidden = ['id'];
+	protected $hidden = ['created_at','updated_at'];
 
-	public $timestamps = false;
+	//public $timestamps = false;
 
 }
