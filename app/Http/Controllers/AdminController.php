@@ -6,6 +6,7 @@ use Rental\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Response;
 use Rental\Customer;
+use Rental\Mitra;
 
 
 class AdminController extends Controller {
@@ -34,12 +35,18 @@ class AdminController extends Controller {
 
 	public function getMitraList()
 	{
-		return view('list-mitra');
+		$query = Mitra::all();
+		return view('list-mitra')->with('mitra', $query);
 	}
 
 	public function getAddCustomer()
 	{
 		return view('add-customer');
+	}
+
+	public function getAddMitra()
+	{
+		return view('add-mitra');
 	}
 
 	public function getArmada()

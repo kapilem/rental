@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class mitra extends Model {
+class Mitra extends Model {
 
 	protected $table = 'mitras';
 

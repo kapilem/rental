@@ -22,12 +22,15 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		//$this->call('JenisKendaraanTableSeeder');
-		//$this->call('TypeKendaraanTableSeeder');
-    //$this->call('CustomerTableSeeder');
-    //$this->call('KendaraanTableSeeder');
-    $this->call('CustomerSeeder');
+		$this->call('JenisKendaraanTableSeeder');
+		$this->call('TypeKendaraanTableSeeder');
+    $this->call('CustomerTableSeeder');
+    $this->call('KendaraanTableSeeder');
+
+    //$this->call('CustomerSeeder');
     $this->call('MitraSeeder');
+    $this->call('CustomerSeeder');
+
 	}
 
 }
@@ -71,3 +74,5 @@ class DatabaseSeeder extends Seeder {
     }
 
   }
+
+  

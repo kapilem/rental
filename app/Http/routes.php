@@ -27,13 +27,19 @@ Route::controllers([
 Route::group(['prefix' => 'customer'], function()
 {
     Route::get('/', 'AdminController@getCustomerList');
-    Route::get('new', 'AdminController@getAddCustomer');
+    Route::get('add', 'AdminController@getAddCustomer');
 });
 
 Route::group(['prefix' => 'mitra'], function()
 {
     Route::get('/', 'AdminController@getMitraList');
-    Route::get('new', 'AdminController@getAddCustomer');
+    Route::get('add', 'AdminController@getAddMitra');
+});
+
+Route::group(['prefix' => 'transaksi'], function()
+{
+    Route::get('/', 'AdminController@getMitraList');
+    Route::get('add', 'AdminController@getAddMitra');
 });
 
 Route::get('kendaraan/add','KendaraanController@getAdd');
