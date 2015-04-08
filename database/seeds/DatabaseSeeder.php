@@ -6,6 +6,7 @@ use Rental\JenisKendaraan;
 use Rental\TypeKendaraan;
 use Rental\Customer;
 use Rental\Kendaraan;
+use Rental\Mitra;
 
 use Faker\Factory as Faker;
 use Faker\Generator;
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder {
     //$this->call('CustomerTableSeeder');
     //$this->call('KendaraanTableSeeder');
     $this->call('CustomerSeeder');
+    $this->call('MitraSeeder');
 	}
 
 }
@@ -51,6 +53,8 @@ class DatabaseSeeder extends Seeder {
       TypeKendaraan::create(['id_jenis_kendaraan' => '2','merk'=>'Daihatsu','type'=>'Xenia']);
       TypeKendaraan::create(['id_jenis_kendaraan' => '2','merk'=>'Suzuki','type'=>'Apv']);
       TypeKendaraan::create(['id_jenis_kendaraan' => '2','merk'=>'Suzuki','type'=>'Ertiga']);
+      TypeKendaraan::create(['id_jenis_kendaraan' => '1','merk'=>'BMW','type'=>'R25']);
+
   	}
   }
   class CustomerTableSeeder extends Seeder{

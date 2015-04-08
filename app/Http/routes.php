@@ -24,6 +24,17 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::group(['prefix' => 'customer'], function()
+{
+    Route::get('/', 'AdminController@getCustomerList');
+    Route::get('new', 'AdminController@getAddCustomer');
+});
+
+Route::group(['prefix' => 'mitra'], function()
+{
+    Route::get('/', 'AdminController@getMitraList');
+    Route::get('new', 'AdminController@getAddCustomer');
+});
 
 Route::get('kendaraan/add','KendaraanController@getAdd');
 Route::post('kendaraan/add','KendaraanController@postAdd');
@@ -51,7 +62,11 @@ Route::group(['prefix' => 'api/v1', 'after' => 'allowOrigin'], function() {
 		Route::get('/{id}', 'ApiController@getCustById');
 		Route::get('/name/{nama}', 'ApiController@getCustByName');
 	});
-	
+	Route::group(['prefix' => '/cust', 'after' => 'allowOrigin'], function() {
+		Route::get('/', 'ApiController@getCust');
+		Route::get('/{id}', 'ApiController@getCustById');
+		Route::get('/name/{nama}', 'ApiController@getCustByName');
+	});
 	
 	Route::group(['prefix'=>'/kendaraan', 'after'=>'allowOrigin'],function(){
 		Route::get('/','ApiController@getKendaraan');

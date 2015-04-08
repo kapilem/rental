@@ -4,6 +4,9 @@ use Rental\Http\Requests;
 use Rental\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Response;
+use Rental\Customer;
+
 
 class AdminController extends Controller {
 
@@ -22,11 +25,23 @@ class AdminController extends Controller {
 		return view('admin');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+	public function getCustomerList()
+	{
+		$query = Customer::all();
+//		return Response::json(['customers'=>$query]);
+		return view('list-customer')->with('customers', $query);
+	}
+
+	public function getMitraList()
+	{
+		return view('list-mitra');
+	}
+
+	public function getAddCustomer()
+	{
+		return view('add-customer');
+	}
+
 	public function getArmada()
 	{
 		//

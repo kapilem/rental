@@ -57,8 +57,9 @@
 		<div class="row">
 			<div class="sidebar dev col-lg-3 col-md-3 col-xs-3">
 				<ul>
-					<li><a href="armada">armada</a></li>
-					<li><a href="sewa">sewa</a></li>
+					<li><a href="/customer">customer</a></li>
+					<li><a href="/mitra">mitra</a></li>
+					<li><a href="/transaksi">transaksi</a></li>
 				</ul>
 			</div>	
 			<div class="content col-md-9">

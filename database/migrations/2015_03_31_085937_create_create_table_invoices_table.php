@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMitrassTable extends Migration {
+class CreateCreateTableInvoicesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,11 @@ class CreateMitrassTable extends Migration {
 	 */
 	public function up()
 	{
-
+		Schema::create('create_table_invoices', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +26,7 @@ class CreateMitrassTable extends Migration {
 	 */
 	public function down()
 	{
-		//Schema::drop('mitras');
+		Schema::drop('create_table_invoices');
 	}
 
 }

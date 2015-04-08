@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class mitra extends Model {
+class create_table_invoice extends Model {
 
 	//
 
